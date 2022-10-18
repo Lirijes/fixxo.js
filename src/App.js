@@ -1,4 +1,4 @@
-import './App.css';
+import './Style.css';
 import Navbar from './components/Navbar';
 import Showcase from './components/Showcase';
 
