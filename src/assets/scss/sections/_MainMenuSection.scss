@@ -1,0 +1,59 @@
+.menu-bar {
+    color: $color-dark;
+    height: 90px;
+
+    .container {
+        height: 100%; /* förhåller sig till height i menu-bar */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        color: $color-theme-dark;
+        font-style: $font-poppins;
+        font-size: 35px;
+        font-weight: $font-weight-bold;
+    }
+
+    .menu-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex: 0.4;
+        font-weight: $font-weight-regular;
+        margin-top: 1rem;
+
+        .menu-link {
+            text-decoration: none;
+            color: $color-theme-dark;
+
+            &:hover {
+                color: $color-theme;
+            }
+        }
+    }
+
+    .circle-icon {
+        margin-left: 0.6rem;
+
+        .btn-light {
+            position: relative;
+            background-color: $color-white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px $color-gray-1;
+
+            .menu-icon {
+                color: $color-theme-dark;
+
+                i {
+                    color: $color-theme-dark;
+                }
+
+                &:hover {
+                    color: $color-theme;
+                }
+            }
+        }
+    }
+}

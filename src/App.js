@@ -1,15 +1,18 @@
 import './Style.css';
-import Navbar from './components/Navbar';
-import Showcase from './components/Showcase';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './views/Home';
+import Contact from './views/Contact';
+import NotFound from './views/NotFound';
 
 function App() {
   return (
-    <> 
-    <Navbar />
-    <Showcase />
-
-    <div style={{"height": "50000px"}}></div>
-    </>
+    <BrowserRouter> 
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
