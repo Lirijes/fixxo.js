@@ -1,25 +1,20 @@
-/* .btn-light {
+/* ---------- round circle button --------- */
+.btn-light {
     position: relative;
     background-color: $color-white;
     border-radius: 50%;
     box-shadow: 0 0 10px $color-gray-1;
+    margin-left: 0.6rem;
 
-    .btn-light a {
+    .menu-icon {
         color: $color-theme-dark;
     }
-    
-    .btn-light:hover a {
+    &:hover .menu-icon {
         color: $color-theme;
     }
-} */
-
-.button {
-    position: relative;
-    background-color: $color-white;
-    border-radius: 50%;
-    box-shadow: 0 0 10px $color-gray-1;
 }
 
+/* --------------- badge -------------- */
 .bg-theme {
     background-color: $color-theme;
     font-family: $font-poppins;
@@ -27,6 +22,7 @@
     font-size: 11px;
 }
 
+/* ------------- theme button ---------------- */
 .btn-red {
     position: relative;
     background-color: $color-theme;

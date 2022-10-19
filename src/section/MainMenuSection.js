@@ -6,20 +6,18 @@ const MainMenuSection = () => {
   return (
     <div className="menu-bar">
         <div className="container">
-            <div className="logo">
-                Fixxo.
-            </div>
+            <NavLink className="logo" to="/" end>Fixxo.</NavLink>
             <div className="menu-links">
-                <NavLink className="menu-link" to="/">Home</NavLink>
-                <NavLink className="menu-link" to="/categories">Categories</NavLink>
-                <NavLink className="menu-link" to="/products">Products</NavLink>
-                <NavLink className="menu-link" to="/contact">Contact</NavLink>
+                <NavLink className="menu-link" to="/" end>Home</NavLink>
+                <NavLink className="menu-link" to="/categories" end>Categories</NavLink>
+                <NavLink className="menu-link" to="/products" end>Products</NavLink>
+                <NavLink className="menu-link" to="/contact" end>Contact</NavLink>
             </div>
             <span className="circle-icon">
-                <MenuIcon className="btn btn-light" link="/search" icon="fa-regular fa-magnifying-glass" />
+                <MenuIcon link="/search" icon="fa-regular fa-magnifying-glass" />
                 <MenuIcon link="/compare" icon="fa-regular fa-code-compare" />
-                <MenuIcon button link="/wishlist" icon="fa-regular fa-heart" />
-                <MenuIcon button="btn btn-light" link="/shoppingcart" icon="fa-regular fa-bag-shopping" />
+                <MenuIcon quantity="3" link="/wishlist" icon="fa-regular fa-heart" />
+                <MenuIcon quantity="4" link="/shoppingcart" icon="fa-regular fa-bag-shopping" />
             </span>
         </div>
     </div>

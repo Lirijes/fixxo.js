@@ -2,14 +2,14 @@ import React from 'react'
 import FooterSection from '../section/FooterSection'
 import MainMenuSection from '../section/MainMenuSection'
 
-const Contact = () => {
+const Search = () => {
   return (
     <>
       <MainMenuSection />
-      <h1>Contact</h1>
+      <h1> search</h1>
       <FooterSection />
     </>
   )
 }
 
-export default Contact
+export default Search

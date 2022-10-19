@@ -2,14 +2,13 @@ import React from 'react'
 import FooterSection from '../section/FooterSection'
 import MainMenuSection from '../section/MainMenuSection'
 
-const Contact = () => {
+const Compare = () => {
   return (
     <>
-      <MainMenuSection />
-      <h1>Contact</h1>
-      <FooterSection />
+     <MainMenuSection />
+     <FooterSection />
     </>
   )
 }
 
-export default Contact
+export default Compare
