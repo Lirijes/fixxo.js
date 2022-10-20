@@ -1,11 +1,9 @@
+/* --- dropdown button when smaller screen --- */
 .btn-dropdown {
     background-color: $color-theme-dark;
     color: white;
-
-    &:hover {
-        
-    }
 }
+/* ------------------------------------------- */
 
 @media (min-width: 310px) {
     .menu-bar {
@@ -58,11 +56,6 @@
             justify-content: flex-end;
             align-items: center;
 
-            /* .btn-light:nth-child(2), se om man kan fixa detta
-            .btn-light:nth-child(3) {
-                display: none;
-            } */
-
             .active {
                 background-color: transparent;
                 color: $color-theme;
@@ -93,6 +86,7 @@
     
         .menu-links {
             display: flex;
+            flex-direction: row;
             justify-content: space-between;
             align-items: center;
             flex: 0.4;
