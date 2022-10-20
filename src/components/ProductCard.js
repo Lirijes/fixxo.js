@@ -32,7 +32,7 @@ const ProductCard = ({item}) => {
                 </li>
             </ul>
             <div className="card-body">
-                <Link className="btn btn-red" to="/product/id" target="_blank" >QUICK VIEW</Link> {/* använder Link istället för NavLink för att kunna använda target blank och öppna sidan i en ny tab */}
+                <Link className="btn btn-red" to={`/products/${item.id}`} target="_blank" >QUICK VIEW</Link> {/* använder Link istället för NavLink för att kunna använda target blank och öppna sidan i en ny tab */}
                 <div className="card-info">
                     <p className="category">{item.category}</p>
                     <h1>{item.name}</h1>

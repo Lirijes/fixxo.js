@@ -7,6 +7,7 @@ import NotFound from './views/NotFound';
 import Categories from './views/Categories';
 import Compare from './views/Compare';
 import Products from './views/Products';
+import ProductDetails from './views/ProductDetails';
 import Search from './views/Search';
 import ShoppingCart from './views/ShoppingCart';
 import WishList from './views/WishList';
@@ -20,6 +21,7 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/compare" element={<Compare />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/search" element={<Search />} />
         <Route path="/shoppingcart" element={<ShoppingCart />} />
         <Route path="/wishlist" element={<WishList />} />
