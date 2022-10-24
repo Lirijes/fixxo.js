@@ -12,7 +12,7 @@ const MainMenuSection = () => {
   return (
     <div className="menu-bar">
         <div className="container">
-            <NavLink className="logo" to="/" end>Fixxo.</NavLink>
+            <NavLink className="logo" to="/" end>Fixxo.</NavLink> 
             <div className={`menu-links ${showMenu ? "d-flex" : ""}`}>
                 <NavLink className="menu-link" to="/" end>Home</NavLink>
                 <NavLink className="menu-link" to="/categories" end>Categories</NavLink>
@@ -21,11 +21,11 @@ const MainMenuSection = () => {
             </div>
             <span className="circle-icon">
                 <MenuIcon link="/search" icon="fa-regular fa-magnifying-glass" />
-                <MenuIcon hideOnMobile={true} link="/compare" icon="fa-regular fa-code-compare" />
+                <MenuIcon hideOnMobile={true} link="/compare" icon="fa-regular fa-code-compare" /> {/* hideonmobile är en klass i MenuIcon som gör att knappen döljer sig vid en viss px med bootstrap */}
                 <MenuIcon hideOnMobile={true} quantity="3" link="/wishlist" icon="fa-regular fa-heart" />
                 <MenuIcon quantity="4" link="/shoppingcart" icon="fa-regular fa-bag-shopping" />
             
-                <button onClick={toggleMenu} className="d-lg-none btn btn-light btn-dropdown"><i className="fa-regular fa-bars"></i></button>
+                <button onClick={toggleMenu} className="d-lg-none btn btn-light btn-dropdown"><i className="fa-regular fa-bars"></i></button> {/* en dropdown knapp som dyker upp vid mindre skärm som får kategorierna att öppna sig som en menyrad under */}
 
             </span>
         </div>

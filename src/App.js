@@ -16,7 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} /> {/* dessa gör att man kan navigera sig mellan knappar/länkar/kategorier */}
         <Route path="/contact" element={<Contact />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/compare" element={<Compare />} />

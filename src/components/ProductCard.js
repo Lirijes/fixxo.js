@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const ProductCard = ({item}) => {
 
-    const addToWishList = (e) => {
-        console.log("added to wishlist")
+    const addToWishList = (e) => { /* varje gång man klickar på knapparna i ett card så händer en aktivitet genom denna kod, detta läggs till som en onClick */
+        console.log("added to wishlist") 
     }
 
     const addToCompare = (e) => {
@@ -31,9 +31,9 @@ const ProductCard = ({item}) => {
                     <button onClick={addToCart} className="btn btn-light"><i className="fa-regular fa-bag-shopping"></i></button>
                 </li>
             </ul>
-            <div className="card-body">
-                <Link className="btn btn-red" to={`/products/${item.id}`} target="_blank" >QUICK VIEW</Link> {/* använder Link istället för NavLink för att kunna använda target blank och öppna sidan i en ny tab */}
-                <div className="card-info">
+            <div className="card-body"> 
+                <Link className="btn btn-red" to={`/products/${item.id}`} target="_blank" >QUICK VIEW</Link> {/* använder Link istället för NavLink för att kunna använda target blank och öppna sidan i en ny tab. (genom att skriva to: product id skickas man till en specifik produktsida) */}
+                <div className="card-info"> 
                     <p className="category">{item.category}</p>
                     <h1>{item.name}</h1>
                     <i className="fa-solid fa-star"></i>
