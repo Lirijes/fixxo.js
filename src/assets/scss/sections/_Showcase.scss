@@ -2,7 +2,7 @@
     background-color: $color-gray-2;
     padding-top: 30px;
 
-    .container {
+    .container-fluid {
         display: flex; 
         justify-content: space-between;
         align-items: center;
@@ -50,7 +50,7 @@
     .showcase {
         padding-bottom: 2rem;
         
-        .container {
+        .container-fluid {
             display: flex;
             justify-content: center;
 

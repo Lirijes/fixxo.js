@@ -1,8 +1,9 @@
 import React from 'react'
-import Showcase from '../components/Showcase'
+import Showcase from '../section/ShowcaseSection'
 import FooterSection from '../section/FooterSection'
 import MainMenuSection from '../section/MainMenuSection'
 import ProductGridSection from '../section/ProductGridSection'
+import ConsciousSection from '../section/ConsciousSection'
 
 const Home = () => {
   window.top.document.title = 'Fixxo.' //detta gör att namnet på fliken ändras
@@ -14,6 +15,7 @@ const Home = () => {
       </header>
       <Showcase />
       <ProductGridSection />
+      <ConsciousSection />
       <FooterSection />
     </>
   )

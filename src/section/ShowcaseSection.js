@@ -3,10 +3,10 @@ import LeftImage from '../assets/images/img-2.svg';
 import RightImage from '../assets/images/img-1.svg';
 
 
-const Showcase = () => {
+const ShowcaseSection = () => {
   return (
     <section className="showcase">
-        <div className="container">
+        <div className="container-fluid">
             <img className="left-img" src={LeftImage} alt="" />
             <div className="main-menu">
                     <h1>Sale Up To 50% Off</h1>
@@ -19,4 +19,4 @@ const Showcase = () => {
   )
 }
 
-export default Showcase
+export default ShowcaseSection

@@ -31,10 +31,10 @@
     background-color: $color-theme;
     color: $color-white;
     font-family: $font-poppins;
-    font-size: 15px;
+    font-size: 14px; /* får ej endast fonten att bli mindre */
     border-radius: 0;
     border: none;
-    padding: 0.7rem 2rem 0.7rem 2rem;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
     transition: all 0.3s ease-in-out;
 
     &::before,
