@@ -63,6 +63,7 @@
                 right: 60%;
                 background-color: white;
                 color: $color-theme-dark;
+                transition: all 0.3s ease-in-out;
 
                 &::before, 
                 &::after {
