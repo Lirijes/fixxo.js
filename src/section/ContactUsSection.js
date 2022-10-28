@@ -11,6 +11,8 @@ const ContactUsSection = () => {
 
         if(!values.name) /* ! står för om värdet name är tomt */
             errors.name = "You must enter a name"
+        else if(!values.name.lenght < 2)
+            errors.name = "You must at least enter 2 characters"
 
         if(!values.email)
             errors.email = "You must enter an e-mail address"
@@ -27,14 +29,17 @@ const ContactUsSection = () => {
         else   
             setCanSubmit(false) /* om det inte finns några värden så kan vi ej submitta formuläret  */
 
-
+            
         return errors;
-    }
+}
+
 
     const handleChange = (e) => {
         const {id, value} = e.target /* man hämtar ut värden till variabler genom detta */
         setContactForm({...contactForm, [id]: value}) /* informationen som skrivs in, läggs in i objektet contactForm. Genom att skriva ...contactFrom så tar man den befintliga informationen som finns i objektet*/
-    } /* genom att sätta in id ovan så anropar man key i detta fall name, email och comment */
+        /* genom att sätta in id ovan så anropar man key i detta fall name, email och comment */
+        setFormErrors({...formErrors, [id]: validate(e)})
+    } 
 
     const handleSubmit = (e) => {
         e.preventDefault() /* stänger av standardbeteendet */
@@ -50,7 +55,7 @@ const ContactUsSection = () => {
         <form onSubmit={handleSubmit} novalidate>
             <div>
                 {/* value används för att skapa ett värde av det som anges i formuläret, för att användaren ska kunna skriva något används onChange som sedan läggs in i objektet contactForm */}
-                <input id="name" type="text" className="error" placeholder="Your Name" value={contactForm.name} onChange={handleChange} />
+                <input id="name" type="text" className={`${ (formErrors.name) ? "error" : "" }`} placeholder="Your Name" value={contactForm.name} onChange={handleChange} required />
                 <div className="errorMessage">{formErrors.name}</div>
             </div>
             <div>
@@ -67,5 +72,6 @@ const ContactUsSection = () => {
     </section>
   )
 }
+
 
 export default ContactUsSection
