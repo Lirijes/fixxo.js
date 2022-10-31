@@ -4,6 +4,8 @@ import FooterSection from '../section/FooterSection'
 import MainMenuSection from '../section/MainMenuSection'
 import ProductGridSection from '../section/ProductGridSection'
 import ConsciousSection from '../section/ConsciousSection'
+import FlashSaleLeft from '../section/FlashSaleLeft'
+import FlashSaleRight from '../section/FlashSaleRight'
 
 const Home = () => {
   window.top.document.title = 'Fixxo.' //detta gör att namnet på fliken ändras
@@ -16,6 +18,8 @@ const Home = () => {
       <Showcase />
       <ProductGridSection />
       <ConsciousSection />
+      <FlashSaleLeft />
+      <FlashSaleRight />
       <FooterSection />
     </>
   )
