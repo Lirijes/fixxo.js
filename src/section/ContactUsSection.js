@@ -1,70 +1,84 @@
 import React, { useState } from 'react'
+import { validate } from '../components/Validation'
 
 const ContactUsSection = () => {
-    const [contactForm, setContactForm] = useState({name: '', email: '', comment: ''}) /* objektet kallas för key value pair där ex name är key och '' är värdet */
-    const [formErrors, setFormErrors] = useState({})
-    const [canSubmit, setCanSubmit] = useState(false)
 
-    const validate = (values) => { /* här stoppar vi in värden som ska valideras och stoppas in i (values), i detta fall name, email och comment */
-        const errors = {} /* här får vi tillbaka ett errorobjekt som antingen är tomt eller ett felmeddelande som då kommer sättas i cons formErrors */
-        const regex_email = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-
-        if(!values.name) /* ! står för om värdet name är tomt */
-            errors.name = "You must enter a name"
-        else if(!values.name.lenght < 2)
-            errors.name = "You must at least enter 2 characters"
-
-        if(!values.email)
-            errors.email = "You must enter an e-mail address"
-        else if(!regex_email.test(values.email))
-            errors.email = "You must enter a valid e-mail address (eg. name@domain.com)"
-
-        if(!values.comment)
-            errors.comment = "You must enter a comment"
-        else if(!values.comment.lenght < 5)
-            errors.comment = "Your comment must be longer than 5 characters"
-
-        if(Object.keys(errors).length === 0) /* vi vill kolla om errors i rad 9 har keys */
-            setCanSubmit(true) /* om det finns värden så kan vi submitta formuläret */
-        else   
-            setCanSubmit(false) /* om det inte finns några värden så kan vi ej submitta formuläret  */
-
-            
-        return errors;
-}
-
-
+    let currentPage = "Contact Us"
+    window.top.document.title = `${currentPage} || Fixxo` 
+  
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [comments, setComments] = useState('')
+    const [errors, setErrors] = useState({})
+    const [submitted, setSubmitted] = useState(false)
+  
     const handleChange = (e) => {
         const {id, value} = e.target /* man hämtar ut värden till variabler genom detta */
-        setContactForm({...contactForm, [id]: value}) /* informationen som skrivs in, läggs in i objektet contactForm. Genom att skriva ...contactFrom så tar man den befintliga informationen som finns i objektet*/
-        /* genom att sätta in id ovan så anropar man key i detta fall name, email och comment */
-        setFormErrors({...formErrors, [id]: validate(e)})
-    } 
+    
+        switch(id) {
 
-    const handleSubmit = (e) => {
-        e.preventDefault() /* stänger av standardbeteendet */
-        setFormErrors(validate(contactForm)) /* tar in validate som kommer ta emot värden som kommer från contactForm */
+            case 'name':
+                setName(value) /* man kallar på name i detta fall, informationen som skrivs in läggs in i value */
+                break
+
+            case 'email':
+                setEmail(value)
+                break
+
+            case 'comments':
+                setComments(value)
+                break
+        }
+  
+        setErrors({...errors, [id]: validate(e)}) /* genom att sätta in id så anropar man key i detta fall name, email och comment */
     }
-
+  
+    const handleSubmit = (e) => {
+        e.preventDefault()  /* stänger av standardbeteendet */
+        setErrors(validate(e, {name, email, comments})) /* tar in validate som kommer ta emot värden som kommer från olika id:n */
+        
+        if (errors.name === null && errors.email === null && errors.comments === null) {
+            setSubmitted(true)  /* om det finns värden så kan vi submitta formuläret */
+            setName('')
+            setEmail('')
+            setComments('')
+            setErrors({})
+        } 
+        
+        else {
+            setSubmitted(false) /* om det saknas några värden så kan vi ej submitta formuläret  */
+        }
+    }
+  
+  
 
 
   return (
     <section className="contact-us">
     <div className="container">
+
+        {
+          submitted ? (
+          <div className="alert alert-success text-center mb-5" role="alert">
+            <h3>Thank you for your comments</h3> 
+            <p>We will contact you as soon as possible.</p>
+            </div>  ) : (<></>)
+        }
+
         <h2>Come in contact with us</h2>
-        <form onSubmit={handleSubmit} novalidate>
+        <form onSubmit={handleSubmit} noValidate>
             <div>
                 {/* value används för att skapa ett värde av det som anges i formuläret, för att användaren ska kunna skriva något används onChange som sedan läggs in i objektet contactForm */}
-                <input id="name" type="text" className={`${ (formErrors.name) ? "error" : "" }`} placeholder="Your Name" value={contactForm.name} onChange={handleChange} required />
-                <div className="errorMessage">{formErrors.name}</div>
+                <input id="name" type="text" className={(errors.name ? 'error': '')} placeholder="Your Name" value={name} onChange={handleChange} required />
+                <div className="errorMessage">{errors.name}</div>
             </div>
             <div>
-                <input id="email" type="email" className="error" placeholder="Your Mail" value={contactForm.email} onChange={handleChange} />
-                <div className="errorMessage">{formErrors.email}</div>
+                <input id="email" type="email" className={(errors.email ? 'error': '')} placeholder="Your Mail" value={email} onChange={handleChange} />
+                <div className="errorMessage">{errors.email}</div>
             </div>
             <div className="textarea">
-                <textarea id="comment" className="error" placeholder="Comments" value={contactForm.comment} onChange={handleChange}></textarea>
-                <div className="errorMessage">{formErrors.comment}</div>
+                <textarea id="comments" className={(errors.comments ? 'error': '')} placeholder="Comments" value={comments} onChange={handleChange} style={(errors.comments ? {border: '1px solid #FF7373'}: {} )}></textarea>
+                <div className="errorMessage">{errors.comments}</div>
             </div>
             <button className="btn-red" type="submit">POST COMMENT</button>
         </form>
