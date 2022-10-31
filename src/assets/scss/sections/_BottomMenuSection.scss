@@ -29,3 +29,29 @@
         }
     }
 }
+
+@media (max-width: 767px) {
+    .bottom-menu {
+        .container {
+            .support:nth-last-child(odd) {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .bottom-menu {
+        display: flex; 
+        align-items: center;
+        .container {
+            .support {
+                &:nth-last-child(odd),
+                &:nth-last-child(2) {
+                    display: none;
+                } 
+
+            }
+        }
+    }
+}
