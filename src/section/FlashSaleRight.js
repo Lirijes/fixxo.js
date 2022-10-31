@@ -12,8 +12,8 @@ const FlashSaleRight = () => {
 ])
 
   return (
-    <section className="flash-sale-left container">
-      <div className="row row-cols-2 row-cols-md-2 g-4 flash-sale-right-boxes" style={{"width" : "90%"}}>
+    <section className="flash-sale-right container">
+      <div className="row row-cols-2 row-cols-md-2 g-4 flash-sale-right-cards" style={{"width" : "90%"}}>
             {
             products.map(product => <ProductCard item={product} />)
             }
