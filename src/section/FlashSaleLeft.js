@@ -20,7 +20,7 @@ const FlashSaleLeft = () => {
         </div>
         <div className="row row-cols-2 row-cols-md-2 g-4 flash-sale-left-cards" style={{"width" : "90%"}}>
             {
-            products.map(product => <ProductCard item={product} />)
+              products.map(product => <ProductCard item={product} />)
             }
         </div>
     </section>

@@ -7,12 +7,12 @@ import MapSection from '../section/MapSection'
 
 
 const Contact = () => {
-  window.top.document.title = 'Contact | Fixxo.'
+  window.top.document.title = 'Contact | Fixxo.' /* visar titel på tab */
 
   return (
     <>
       <MainMenuSection />
-      <BreadcrumbSection currentPage="Contact"/>
+      <BreadcrumbSection currentPage="Contact" />
       <MapSection />
       <ContactUsSection />
       <FooterSection />

@@ -4,7 +4,7 @@ import { validate } from '../components/Validation'
 const ContactUsSection = () => {
 
     let currentPage = "Contact Us"
-    window.top.document.title = `${currentPage} || Fixxo` 
+    window.top.document.title = `${currentPage} || Fixxo` /* visar titel på tab, överröstar den som finns på contact.js */
   
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
