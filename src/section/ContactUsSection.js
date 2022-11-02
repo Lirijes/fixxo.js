@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { validate } from '../components/Validation'
+import { submitData, validate } from '../assets/scripts/Validation'
 
 const ContactUsSection = () => {
 
@@ -33,20 +33,28 @@ const ContactUsSection = () => {
         setErrors({...errors, [id]: validate(e)}) /* genom att sätta in id så anropar man key i detta fall name, email och comment */
     }
   
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()  /* stänger av standardbeteendet */
         setErrors(validate(e, {name, email, comments})) /* tar in validate som kommer ta emot värden som kommer från olika id:n */
         
         if (errors.name === null && errors.email === null && errors.comments === null) {
-            setSubmitted(true)  /* om det finns värden så kan vi submitta formuläret */
+            
+            let json = JSON.stringify({name, email, comments}) /* datan som skickas in görs om till json objekt */
+
             setName('')
             setEmail('')
             setComments('')
             setErrors({})
+
+            if(await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json)) {
+                setSubmitted(true)
+            }
+            else {
+                setSubmitted(false)
+            }
         } 
-        
         else {
-            setSubmitted(false) /* om det saknas några värden så kan vi ej submitta formuläret  */
+            setSubmitted(false)
         }
     }
   
@@ -60,7 +68,7 @@ const ContactUsSection = () => {
         {
           submitted ? (
           <div className="alert alert-success text-center mb-5" role="alert">
-            <h3>Thank you for your comments</h3> 
+            <h3>Thank you for your comment</h3> 
             <p>We will contact you as soon as possible.</p>
             </div>  ) : (<></>)
         }

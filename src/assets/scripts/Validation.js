@@ -1,3 +1,19 @@
+export const submitData = async (url, method, data, contentType = 'application/json') => {
+    
+    const res = await fetch(url, { /* fetch är js varianten för att kontakta ett formulär */
+        method: method,
+        headers: {
+            'Content-Type': contentType
+        },
+        body: data
+    }) /* detta ska skicka iväg informationen till api */
+
+    if(res.status === 200) /* vi får tillbaka respons på det som skickas in till api */
+        return true
+        return false
+}
+
+
 export const validate = (e, form = null) => {
     
     if (e.type === 'submit') {
