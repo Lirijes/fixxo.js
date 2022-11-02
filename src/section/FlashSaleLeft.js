@@ -1,16 +1,7 @@
 import React from 'react'
-import { useState } from 'react'
 import ProductCard from '../components/ProductCard'
 
-const FlashSaleLeft = () => {
-
-    const [products, setProducts] = useState([
-      {id: 10, name: "Modern Black Blouse", category: "Category", oldprice: "$35.00", discountprice: "$30.00", rating: 5},
-      {id: 11, name: "Modern Black Blouse", category: "Category", oldprice: "$35.00", discountprice: "$30.00", rating: 5},
-      {id: 12, name: "Modern Black Blouse", category: "Category", oldprice: "$35.00", discountprice: "$30.00", rating: 5},
-      {id: 13, name: "Modern Black Blouse", category: "Category", oldprice: "$35.00", discountprice: "$30.00", rating: 5},
-])
-
+const FlashSaleLeft = ({items =[]}) => {
 
   return (
     <section className="flash-sale-left container">
@@ -20,7 +11,7 @@ const FlashSaleLeft = () => {
         </div>
         <div className="row row-cols-2 row-cols-md-2 g-4 flash-sale-left-cards" style={{"width" : "90%"}}>
             {
-              products.map(product => <ProductCard item={product} />)
+              items.map(product => <ProductCard key={product.articleNumber} item={product} />)
             }
         </div>
     </section>

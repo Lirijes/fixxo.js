@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Showcase from '../section/ShowcaseSection'
 import FooterSection from '../section/FooterSection'
 import MainMenuSection from '../section/MainMenuSection'
@@ -7,9 +7,12 @@ import ConsciousSection from '../section/ConsciousSection'
 import FlashSaleLeft from '../section/FlashSaleLeft'
 import FlashSaleRight from '../section/FlashSaleRight'
 import BottomMenuSection from '../section/BottomMenuSection'
+import { ProductContext } from '../contexts/Contexts'
 
 const Home = () => {
   window.top.document.title = 'Fixxo.' //detta gör att namnet på fliken ändras
+
+  const productContext = useContext(ProductContext) /* här vill vi använda oss av contexten ProductContext */
 
   return (
     <>
@@ -17,10 +20,10 @@ const Home = () => {
         <MainMenuSection />
       </header>
       <Showcase />
-      <ProductGridSection />
+      <ProductGridSection titel="Product Grid Section" items={productContext.featuredProducts} /> {/* här hämtas produkterna i listan in och läggs in i den sectionen */}
       <ConsciousSection />
-      <FlashSaleLeft />
-      <FlashSaleRight />
+      <FlashSaleLeft title="Flash Sale Left" items={productContext.saleProducts} />
+      <FlashSaleRight title="Flash Sale Right" items={productContext.saleProducts} />
       <BottomMenuSection />
       <FooterSection />
     </>

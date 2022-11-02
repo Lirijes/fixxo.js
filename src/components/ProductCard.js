@@ -20,6 +20,7 @@ const ProductCard = ({item}) => {
   return (
     <div className="col">
         <div className="card">
+            <img src={item.imageName} alt={item.name} />
             <ul className="card-menu">
                 <li>
                     <button onClick={addToWishList} className="btn btn-light"><i className="fa-regular fa-heart"></i></button>
@@ -43,7 +44,7 @@ const ProductCard = ({item}) => {
                     <i className="fa-solid fa-star"></i>
                 </div>
                 <div className="card-price">  {/* delas upp separat för att använda flexbox */}
-                    <p className="card-old-price">{item.oldprice}</p>
+                    <p className="card-price">{item.price}</p>
                     <p className="card-dicsount-price">{item.discountprice}</p>
                 </div>
             </div>

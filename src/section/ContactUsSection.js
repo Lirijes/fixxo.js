@@ -6,7 +6,7 @@ const ContactUsSection = () => {
     let currentPage = "Contact Us"
     window.top.document.title = `${currentPage} || Fixxo` /* visar titel på tab, överröstar den som finns på contact.js */
   
-    const [name, setName] = useState('')
+    const [name, setName] = useState('') /* useState lagrar data, i detta fall namn */ 
     const [email, setEmail] = useState('')
     const [comments, setComments] = useState('')
     const [errors, setErrors] = useState({})
