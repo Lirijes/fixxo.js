@@ -15,7 +15,7 @@ const ContactUsSection = () => {
     const handleChange = (e) => {
         const {id, value} = e.target /* man hämtar ut värden till variabler genom detta */
     
-        switch(id) {
+        switch (id) {
 
             case 'name':
                 setName(value) /* man kallar på name i detta fall, informationen som skrivs in läggs in i value */
@@ -27,6 +27,9 @@ const ContactUsSection = () => {
 
             case 'comments':
                 setComments(value)
+                break
+
+            default:
                 break
         }
   

@@ -1,11 +1,7 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
-import ProductGridSection from './ProductGridSection'
-import ProductCard from '../components/ProductCard'
 
-const ProductDescriptionSection = () => {
 
-    const params = useParams()
+const ProductDescriptionSection = ({product}) => {
 
   return (
     <>
@@ -18,8 +14,8 @@ const ProductDescriptionSection = () => {
 
             <div className="product-info-right">
                 <div className="product-text">
-                    <h1>Modern Black Blouse</h1>
-                    <p className="product-id">ARTNR: {params.id} BRAND: Fixxo.</p>
+                    <h1>{product.name}</h1>
+                    <p className="product-id">ARTNR: {product.articleNumber} BRAND: Fixxo.</p>
                     <div className="stars">
                         <i className="fa-solid fa-star"></i>
                         <i className="fa-solid fa-star"></i>
@@ -27,7 +23,7 @@ const ProductDescriptionSection = () => {
                         <i className="fa-solid fa-star"></i>
                         <i className="fa-solid fa-star"></i>
                     </div>
-                    <p className="item-price">$ 35.00</p>
+                    <p className="item-price">$ {product.price}</p>
                     <p className="item-info">
                         Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. (read more)
                     </p>

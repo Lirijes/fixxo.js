@@ -1,25 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import MainMenuSection from '../section/MainMenuSection'
 import FooterSection from '../section/FooterSection'
 import { useParams } from 'react-router-dom'
 import BreadcrumbSection from '../section/BreadcrumbSection'
 import ProductDescriptionSection from '../section/ProductDescriptionSection'
 
+
 const ProductDetails = () => {
+  const {id} = useParams()
+  const [product, setProduct] = useState({})
 
-    let currentPage = "Product Details"
-    window.top.document.title = `${currentPage} || Fixxo` 
-
-      const params = useParams()
+  useEffect(() =>  {
+    const fetchData = async () => {
+      const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${id}`)
+      setProduct(await result.json())
+    }
+    fetchData()
+  }, [])
 
     return (
       <>
           <MainMenuSection />
           <p className="top-info">Get 25% OFF at the Fixxo Selection - Shop Now!</p>
           <BreadcrumbSection currentPage="Product Description" />
-          <ProductDescriptionSection />
+          <ProductDescriptionSection product={product} />
           <div className="container mt-5">
-              <h1>{params.id}</h1>
+              <h1>{id}</h1>
           </div>
           <FooterSection />
       </>
