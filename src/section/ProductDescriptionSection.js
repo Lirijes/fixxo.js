@@ -8,7 +8,7 @@ const ProductDescriptionSection = ({product}) => {
         <div className="product-description container">
             <div className="product-info-left">
                 <div className="product-images">
-                    {/* <img className="big-img" src={} alt="" /> */}
+                    <img className="big-img" src={product.imageName} alt="" />
                 </div>
             </div>
 

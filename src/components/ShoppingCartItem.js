@@ -11,7 +11,7 @@ const ShoppingCartItem = ({item}) => {
         </div>
         <div className="item-info">
             <div className="item-info-name">{item.product.name}</div>
-            <div className="item.info-quantity">
+            <div className="iteminfo-quantity">
                 <button onClick={() => decrementQuantity(item)}>-</button>
                 <span>{item.quantity}</span>
                 <button onClick={() => incrementQuantity(item)}>+</button>

@@ -24,9 +24,6 @@ const ProductDetails = () => {
           <p className="top-info">Get 25% OFF at the Fixxo Selection - Shop Now!</p>
           <BreadcrumbSection parentPage="Product Description" currentPage={product.name} />
           <ProductDescriptionSection product={product} />
-          <div className="container mt-5">
-              <h1>{id}</h1>
-          </div>
           <FooterSection />
       </>
   )
