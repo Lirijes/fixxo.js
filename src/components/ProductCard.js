@@ -1,21 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useShoppingCart } from '../contexts/ShoppingCartContext';
 
 
 const ProductCard = ({item}) => {
-
-    const addToWishList = (e) => { /* varje gång man klickar på knapparna i ett card så händer en aktivitet genom denna kod, detta läggs till som en onClick */
-        console.log("added to wishlist") 
-    }
-
-    const addToCompare = (e) => {
-        console.log("added to compare")
-    }
-
-    const addToCart = (e) => {
-        console.log("added to shoppingcart")
-    }
-
+    const { incrementQuantity } = useShoppingCart()
 
   return (
     <div className="col">
@@ -23,13 +12,13 @@ const ProductCard = ({item}) => {
             <img src={item.imageName} alt={item.name} />
             <ul className="card-menu">
                 <li>
-                    <button onClick={addToWishList} className="btn btn-light"><i className="fa-regular fa-heart"></i></button>
+                    <button className="btn btn-light"><i className="fa-regular fa-heart"></i></button>
                 </li>
                 <li>
-                    <button onClick={addToCompare} className="btn btn-light"><i className="fa-regular fa-code-compare"></i></button>
+                    <button className="btn btn-light"><i className="fa-regular fa-code-compare"></i></button>
                 </li>
                 <li>
-                    <button onClick={addToCart} className="btn btn-light"><i className="fa-regular fa-bag-shopping"></i></button>
+                    <button onClick={() => incrementQuantity({articleNumber: item.articleNumber, product: item})} className="btn btn-light"><i className="fa-regular fa-bag-shopping"></i></button>
                 </li>
             </ul>
             <div className="card-body"> 
@@ -44,7 +33,7 @@ const ProductCard = ({item}) => {
                     <i className="fa-solid fa-star"></i>
                 </div>
                 <div className="card-price">  {/* delas upp separat för att använda flexbox */}
-                    <p className="card-price">{item.price}</p>
+                    <p className="card-price">$ {item.price}</p>
                     <p className="card-dicsount-price">{item.discountprice}</p>
                 </div>
             </div>

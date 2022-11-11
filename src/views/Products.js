@@ -16,7 +16,7 @@ const Products = () => {
     <>
       <MainMenuSection />
       <BreadcrumbSection currentPage="Products" />
-      <ProductGridSection titel="Product Grid Section" items={productContext.allProducts} />
+      <ProductGridSection titel="Product Grid Section" items={productContext} />
       <FooterSection />
     </>
   )

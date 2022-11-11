@@ -7,12 +7,13 @@ import ConsciousSection from '../section/ConsciousSection'
 import FlashSaleLeft from '../section/FlashSaleLeft'
 import FlashSaleRight from '../section/FlashSaleRight'
 import BottomMenuSection from '../section/BottomMenuSection'
-import { ProductContext } from '../contexts/Contexts'
+import { FeaturedProductContext, SaleProductContext } from '../contexts/Contexts'
 
 const Home = () => {
   window.top.document.title = 'Fixxo.' //detta gör att namnet på fliken ändras
 
-  const productContext = useContext(ProductContext) /* här vill vi använda oss av contexten ProductContext */
+  const featuredProducts = useContext(FeaturedProductContext) /* här vill vi använda oss av contexten ProductContext */
+  const saleProducts = useContext(SaleProductContext)
 
   return (
     <>
@@ -20,10 +21,10 @@ const Home = () => {
         <MainMenuSection />
       </header>
       <Showcase />
-      <ProductGridSection titel="Product Grid Section" items={productContext.featuredProducts} /> {/* här hämtas produkterna i listan in och läggs in i den sectionen */}
+      <ProductGridSection titel="Product Grid Section" items={featuredProducts} /> {/* här hämtas produkterna i listan in och läggs in i den sectionen */}
       <ConsciousSection />
-      <FlashSaleLeft title="Flash Sale Left" items={productContext.saleProducts} />
-      <FlashSaleRight title="Flash Sale Right" items={productContext.saleProducts} />
+      <FlashSaleLeft title="Flash Sale Left" items={saleProducts} />
+      <FlashSaleRight title="Flash Sale Right" items={saleProducts} />
       <BottomMenuSection />
       <FooterSection />
     </>
