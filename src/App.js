@@ -14,6 +14,7 @@ import ProductDetails from './views/ProductDetails';
 import Search from './views/Search';
 import ShoppingCart from './views/ShoppingCart';
 import WishList from './views/WishList';
+import UserProvider from './contexts/UserContext';
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
       <ProductContext.Provider value={allProducts}> {/* alla routes som vi har kan utnyttja denna provider som vi har  */}
       <FeaturedProductContext.Provider value={featuredProducts}>
       <SaleProductContext.Provider value={saleProducts}>
+      <UserProvider>
       <ShoppingCartProvider>
         <Routes>
           <Route path="/" element={<Home />} /> {/* dessa gör att man kan navigera sig mellan knappar/länkar/kategorier */}
@@ -62,6 +64,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </ShoppingCartProvider> 
+      </UserProvider>
       </SaleProductContext.Provider>
       </FeaturedProductContext.Provider>
       </ProductContext.Provider>
